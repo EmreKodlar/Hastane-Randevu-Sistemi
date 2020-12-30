@@ -1,2 +1,2 @@
 # Hastane-Randevu-Sistemi
- Hastane Randevu Sistemi, NEsne Yönelimli Programlama Proje
+ Hastane Randevu Sistemi, Nesne Yönelimli Programlama Proje
