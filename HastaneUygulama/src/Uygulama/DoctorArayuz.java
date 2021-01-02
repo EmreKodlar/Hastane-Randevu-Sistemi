@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
 import Model.Doctor;
+import Model.User;
 
 import java.awt.Color;
 import javax.swing.JLabel;
@@ -33,6 +34,15 @@ public class DoctorArayuz extends JFrame implements InterFace {
 	private JPanel w_pane;
 	
 	private static Doctor doctor=new Doctor();
+	
+	//Polymorphism
+	
+	
+	private static User kullanici=new Doctor();
+	
+	
+	// bitti
+	
 	private JTable table_Whour;
 	
 	private DefaultTableModel whourModel;
@@ -62,6 +72,8 @@ public class DoctorArayuz extends JFrame implements InterFace {
 	 */
 	public DoctorArayuz(Doctor doctor) throws SQLException {
 		
+		
+	 
 		
 		whourModel= new DefaultTableModel();
 		Object[] colWhour=new Object[2];
@@ -229,7 +241,7 @@ public class DoctorArayuz extends JFrame implements InterFace {
 				SifreGUI sGUI;
 				try {
 					sGUI = new SifreGUI(doctor.getId());
-				    
+									    
 					sGUI.setVisible(true);
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
