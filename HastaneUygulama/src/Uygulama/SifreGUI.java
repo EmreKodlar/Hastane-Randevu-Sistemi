@@ -13,6 +13,7 @@ import Model.User;
 
 import Baglanti.Database;
 import Baglanti.Helper;
+import Baglanti.SifreUyari;
 
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -143,7 +144,7 @@ public class SifreGUI extends JFrame {
 					 
 						preparedStatement.executeUpdate();
 				
-						Helper.Goster("Þifreniz Baþarýyla Deðiþti\n Yeni Þifreniz: " + yeni_sifre.getText() );
+						Helper.Goster("Þifreniz Baþarýyla Deðiþti\n Yeni þifreniz: " + yeni_sifre.getText() );
 					 
 						
 						dispose();
@@ -153,9 +154,12 @@ public class SifreGUI extends JFrame {
 					
 					else {
 						
+						SifreUyari uyari=new SifreUyari();
 						
 						
-						Helper.Goster("Girdiðiniz Bilgiler Hatalý!");	
+						uyari.Goster("Girdiðiniz Bilgiler Hatalý!");
+						
+						
 						
 					}
 					
