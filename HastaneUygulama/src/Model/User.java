@@ -73,8 +73,15 @@ public class User {
 	}
 
 
-
+	// polimorphism
+	
+	 public String isimYaz(String name) {
+		 
+		 return name;
+		 
+	 }
 	 
+	 // için yapýldý
 	
 	 
 

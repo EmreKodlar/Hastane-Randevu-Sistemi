@@ -19,8 +19,8 @@ public class Doctor extends User {
 		super(id, tcno, name, password, type);
 		 
 	}
-	
-	
+ 
+ 
 	public boolean addWhour(int doctor_id,String doctor_name,String wdate) throws SQLException {
 		
 		int key=0;

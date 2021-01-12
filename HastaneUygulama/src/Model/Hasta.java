@@ -8,7 +8,9 @@ import java.sql.Statement;
 
 import Baglanti.Helper;
 
-public class Hasta extends User {
+public class Hasta extends User implements InterfaceModel {
+	
+ 
 
 	Statement st=null;
 	ResultSet rs=null;
@@ -67,7 +69,7 @@ public class Hasta extends User {
 	}
 	
 	
-	
+	@Override	
 public boolean addAppoinment(int doctor_id,int hasta_id,  String doctor_name ,String hasta_name, String appDate) throws SQLException {
 		
 		int key=0;
@@ -104,7 +106,7 @@ public boolean addAppoinment(int doctor_id,int hasta_id,  String doctor_name ,St
 
 
 
-
+@Override
 public boolean updateWhourStatus(int doctor_id, String wdate ) throws SQLException {
 	
 	int key=0;
@@ -135,6 +137,8 @@ public boolean updateWhourStatus(int doctor_id, String wdate ) throws SQLExcepti
 
 
 
+
+@Override
 public boolean deleteRandevu(int id) throws SQLException {
 	String query = "DELETE FROM appoinment WHERE id=?";
 
