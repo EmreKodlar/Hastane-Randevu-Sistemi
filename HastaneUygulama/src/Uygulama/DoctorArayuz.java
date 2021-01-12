@@ -35,13 +35,7 @@ public class DoctorArayuz extends JFrame implements InterFace {
 	
 	private static Doctor doctor=new Doctor();
 	
-	//Polymorphism
 	
-	
-	private static User kullanici=new Doctor();
-	
-	
-	// bitti
 	
 	private JTable table_Whour;
 	
@@ -98,7 +92,21 @@ public class DoctorArayuz extends JFrame implements InterFace {
 		setContentPane(w_pane);
 		w_pane.setLayout(null);
 		
-		JLabel label = new JLabel(this.karsilamaMesaji + doctor.getName());
+	
+		
+		//Polymorphism
+		
+		User kullanici=new Doctor();
+
+		// için türetildi
+		
+		
+		JLabel label = new JLabel(this.karsilamaMesaji + kullanici.isimYaz(doctor.getName()));
+		
+		
+		
+		
+		
 		label.setFont(new Font("Arial Black", Font.PLAIN, 12));
 		label.setBounds(10, 27, 302, 18);
 		w_pane.add(label);
@@ -239,6 +247,9 @@ public class DoctorArayuz extends JFrame implements InterFace {
 				 
 				
 				SifreGUI sGUI;
+				
+				
+				
 				try {
 					sGUI = new SifreGUI(doctor.getId());
 									    
@@ -255,7 +266,7 @@ public class DoctorArayuz extends JFrame implements InterFace {
 				
 			}
 		});
-		button_sifre.setBounds(602, 66, 120, 23);
+		button_sifre.setBounds(602, 67, 120, 23);
 		w_pane.add(button_sifre);
 		
 		 

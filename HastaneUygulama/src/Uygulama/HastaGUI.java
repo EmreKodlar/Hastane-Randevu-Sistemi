@@ -388,7 +388,7 @@ DefaultTableModel clearModel= (DefaultTableModel) table_whours.getModel();
 		
 		
 		
-
+//silme iþlemi baþlýyor
 		JButton btnNewButton = new JButton("Randevu Sil");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -437,7 +437,7 @@ DefaultTableModel clearModel= (DefaultTableModel) table_whours.getModel();
 		w_appoint.add(btnNewButton);
 		
 		 
- 
+ // bitiyor
 		
 	}
 	

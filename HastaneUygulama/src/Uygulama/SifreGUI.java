@@ -110,6 +110,8 @@ public class SifreGUI extends JFrame {
 				if(tcno.getText().length()==0 || eski_sifre.getText().length()==0 || yeni_sifre.getText().length()==0) {
 					
 					Helper.Goster("hata");
+					
+					 
 				}
 				
 				else if(yeni_sifre.getText().length()<6 ) {

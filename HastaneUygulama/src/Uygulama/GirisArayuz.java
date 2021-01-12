@@ -251,14 +251,17 @@ else
 		  java.sql.Statement st = con.createStatement();
 		 
 		 
-		String sorgu="SELECT*FROM user";
+		String sorgu="SELECT*FROM user ";
 		
 		ResultSet rs= st.executeQuery(sorgu);
 		
+ 
 		  
 		while(rs.next()) {
 			
-			if(doktor_tcno.getText().equals(rs.getString("tcno")) && doktor_sifre.getText().equals(rs.getString("password")))
+			 
+			
+			  if(doktor_tcno.getText().equals(rs.getString("tcno")) && doktor_sifre.getText().equals(rs.getString("password")))
 					
 					{
 				
@@ -277,6 +280,7 @@ else
 					dispose();
 					
 				}
+				 
 				
 				if(rs.getString("type").equals("doktor")) {
 					
@@ -296,14 +300,33 @@ else
 				}
 				
 			
+				
+			
 			}
+			  
+
+		
+			
 			
 		}
+		 
+		
+		  
+		 
+		
+		
+	
+		  
+		
+		
 		
 	} catch (SQLException e2) {
 		 
 	}
+	        
 	
+		 
+	  
 	
 }
 				

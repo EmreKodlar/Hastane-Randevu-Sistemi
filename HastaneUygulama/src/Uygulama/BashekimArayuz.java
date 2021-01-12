@@ -26,11 +26,16 @@ import java.awt.Point;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.awt.event.ActionEvent;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
@@ -66,6 +71,7 @@ public class BashekimArayuz extends JFrame implements InterFace {
 	
 	private DefaultTableModel workerModel=null;
 	private Object[] workerData=null;
+	private JTextField textField_1;
 	
 	 
 
@@ -315,10 +321,95 @@ public class BashekimArayuz extends JFrame implements InterFace {
 		sil.setBounds(529, 317, 171, 23);
 		panel.add(sil);
 		
+		
+		
+		
+		
+		
 		JScrollPane scroll_doktor = new JScrollPane();
-		scroll_doktor.setBounds(10, 32, 495, 308);
+		scroll_doktor.setBounds(10, 52, 495, 290);
 		panel.add(scroll_doktor);
 		
+		
+		
+		
+		//ARAMA BURDAN BAÞLIYOR
+		
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(10, 11, 400, 20);
+		panel.add(textField_1);
+		textField_1.setColumns(10);
+		
+		
+		
+		
+		
+		JButton btnNewButton_1 = new JButton("  ARA  ");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				DefaultTableModel clearModel = (DefaultTableModel) table_doctor.getModel();
+				
+				clearModel.setRowCount(0);
+				
+ 
+					String arananKelime=textField_1.getText(); //Textfield içindeki alaný alýyoruz
+
+					Database conn= new Database();
+					Statement st=null;
+					ResultSet rs=null;
+					Connection con=conn.connDb();
+					PreparedStatement preparedStatement= null;
+					
+						
+						try {
+							
+							
+							String query="SELECT * FROM user WHERE name LIKE '%"+ arananKelime +"%' AND type='doktor'";
+							
+							st=con.createStatement();
+							preparedStatement=con.prepareStatement(query);
+							rs=st.executeQuery(query);
+							
+							while(rs.next()) /*Dönen sonuc kadar döngüye sokarýz*/
+							{
+								Object[] colDoctorName=new Object[4];
+								colDoctorName[0]=rs.getInt("id");
+								colDoctorName[1]=rs.getString("name");
+								colDoctorName[2]=rs.getString("tcno");
+								colDoctorName[3]=rs.getString("password");
+								
+								 
+									doctorModel.addRow(colDoctorName);
+									
+								}
+							
+							 
+							
+						table_doctor.setModel(doctorModel); 
+							
+						} catch (SQLException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						
+						
+					
+					 
+				
+				
+			}
+		});
+		btnNewButton_1.setBounds(416, 10, 89, 20);
+		panel.add(btnNewButton_1);
+		
+		
+	
+		//BURAYA KADAAAR
+		
+		table_doctor = new JTable(doctorModel);
+		scroll_doktor.setViewportView(table_doctor);
 		table_doctor = new JTable(doctorModel);
 		scroll_doktor.setViewportView(table_doctor);
 				
